@@ -1,0 +1,75 @@
+* {
+    font-family: Robota, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5%;
+    padding: 20px;
+    background-color: greenyellow;
+    width: 100%
+
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.pixel-number-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.sketchboard-container {
+    border: 1px solid black;
+}
+
+.sketchboard {
+    display: flex;
+    flex-flow: wrap;
+    width: 400px;
+    height: 400px;
+}
+
+.pixel:hover {
+    background-color: lightblue;
+}
+
+.color-picker {
+    width: 100px;
+    height: 70px;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+.reset {
+    margin: 20px;
+}
