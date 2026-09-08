@@ -3,9 +3,20 @@ let resetBtn = document.querySelector('.reset');
 let colorPicker = document.querySelector('.color-picker');
 let pixelNumberSelector = document.querySelector('.pixel-number');
 let pixelNumberDisplay = document.querySelector('.pixel-number-display');
+let rgbBtn = document.querySelector('.rgb-button');
+
+let rgbColors = ['lightred', 'lightblue', 'lightgreen', 'blue', 'red', 
+                 'green', 'purple', 'pink', 'white', 'yellow', 'orange'];
+
 let isMouseDown = false;
 let pixelColor = 'black';
 let boardSize = 32;
+let rgb = false;
+
+
+rgbBtn.addEventListener('click', () => {
+    rgb = true;
+})
 
 pixelNumberSelector.addEventListener('input', () => {
     boardSize = pixelNumberSelector.value;
@@ -14,16 +25,18 @@ pixelNumberSelector.addEventListener('input', () => {
 })
 
 colorPicker.addEventListener('change', () => {
+    rgb = false;
     pixelColor = colorPicker.value;
 })
 
 resetBtn.addEventListener('click', () => {
-    boardSize = 16
+    rgb = false;
+    boardSize = 16;
     createPixels(boardSize);
     pixelColor = 'black';
     pixelNumberSelector.value = 16;
     pixelNumberDisplay.textContent = `${boardSize} x ${boardSize}`;
-    colorPicker.value = '#000'
+    colorPicker.value = '#000';
 })
 
 sketchBoard.addEventListener('mousedown', () => isMouseDown = true);
@@ -40,13 +53,23 @@ function createPixels(num) {
 
             pixel.addEventListener('click', () => {
             if (isMouseDown) {
-                pixel.style.backgroundColor = pixelColor;
+                if (!rgb) {
+                    pixel.style.backgroundColor = pixelColor;
+                }
+                else if (rgb) {
+                    pixel.style.backgroundColor = rgbColors[Math.floor(Math.random()*rgbColors.length)];
+                }
             }
         })
 
         pixel.addEventListener('mouseover', () => {
             if (isMouseDown) {
-                pixel.style.backgroundColor = pixelColor;
+                if (!rgb) {
+                    pixel.style.backgroundColor = pixelColor;
+                }
+                else if (rgb) {
+                    pixel.style.backgroundColor = rgbColors[Math.floor(Math.random()*rgbColors.length)];
+                }
             }
         })
         sketchBoard.append(pixel);
